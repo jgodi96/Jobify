@@ -1,0 +1,26 @@
+{
+  "name": "jobify",
+  "version": "1.0.0",
+  "description": "- change title in public/index.html - replace favicon.ico in public - resource (favicons)[https://favicon.io]",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgodi96/Jobify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jgodi96/Jobify/issues"
+  },
+  "homepage": "https://github.com/jgodi96/Jobify#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.2.1"
+  }
+}
