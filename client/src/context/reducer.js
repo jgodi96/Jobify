@@ -8,6 +8,7 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_ERROR,
   TOGGLE_SIDEBAR,
+  LOGOUT_USER
 } from "./actions";
 
 import { initialState } from "./appContext";
