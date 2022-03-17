@@ -15,6 +15,7 @@ import {
   UPDATE_USER_BEGIN,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,
+  HANDLE_CHANGE,
 } from "./actions";
 
 const token = localStorage.getItem("token");
@@ -29,8 +30,16 @@ const initialState = {
   user: user ? JSON.parse(user) : null,
   token: null,
   userLocation: location || "",
-  jobLocation: location || "",
   showSidebar: false,
+  isEditing:false,
+  editJobId:'',
+  position:'',
+  company:'',
+  jobLocation: location || "",
+  jobTypeOptions: ['full-time','part-time','remote','internship'],
+  jobType: 'full-time',
+  statusOptions:['interview','declined','pending'],
+  status:'pending',
 };
 
 const AppContext = React.createContext();
@@ -160,6 +169,9 @@ const AppProvider = ({ children }) => {
     }
     clearAlert();
   };
+  const handleChange = ({name,value}) => {
+    dispatch({type:HANDLE_CHANGE,payload:{name,value}})
+  }
   return (
     <AppContext.Provider
       value={{
@@ -170,6 +182,7 @@ const AppProvider = ({ children }) => {
         toggleSidebar,
         logoutUser,
         updateUser,
+        handleChange
       }}
     >
       {children}
