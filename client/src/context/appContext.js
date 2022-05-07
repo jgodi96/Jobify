@@ -46,10 +46,10 @@ const initialState = {
   jobType: "full-time",
   statusOptions: ["interview", "declined", "pending"],
   status: "pending",
-  jobs:[],
-  totalJobs:0,
-  numOfPages:1,
-  page:1,
+  jobs: [],
+  totalJobs: 0,
+  numOfPages: 1,
+  page: 1,
 };
 
 const AppContext = React.createContext();
@@ -208,23 +208,26 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
-  const getJobs = async()=>{
-    let url = `/jobs`
+  const getJobs = async () => {
+    let url = `/jobs`;
 
-    dispatch({type:GET_JOBS_BEGIN})
-    try{
-      const {data} = await authFetch(url);
-      const {jobs,totalJobs,numOfPages} = data
-      dispatch({type:GET_JOBS_SUCCESS,
-        payload:{
-          jobs,totalJobs,numOfPages,
+    dispatch({ type: GET_JOBS_BEGIN });
+    try {
+      const { data } = await authFetch(url);
+      const { jobs, totalJobs, numOfPages } = data;
+      dispatch({
+        type: GET_JOBS_SUCCESS,
+        payload: {
+          jobs,
+          totalJobs,
+          numOfPages,
         },
-      })
-    }catch(error){
-   //logoutUser()
+      });
+    } catch (error) {
+      //logoutUser()
     }
-    clearAlert()
-  }
+    clearAlert();
+  };
   return (
     <AppContext.Provider
       value={{
@@ -238,7 +241,7 @@ const AppProvider = ({ children }) => {
         handleChange,
         clearValues,
         createJob,
-        getJobs
+        getJobs,
       }}
     >
       {children}
