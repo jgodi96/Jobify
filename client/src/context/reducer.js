@@ -182,7 +182,7 @@ const reducer = (state, action) => {
       isLoading: false,
       jobs: action.payload.jobs,
       totalJobs: action.payload.totalJobs,
-      jobs: action.payload.numOfPages,
+      numOfPages: action.payload.numOfPages,
     };
   }
 
