@@ -1,8 +1,19 @@
+import React, {useState} from 'react'
+
+import BarChart from './BarChart'
+import AreaChart from './AreaChart'
+import { useAppContext } from '../context/appContext'
+import Wrapper from '../assets/wrappers/ChartsContainer'
+
 const ChartsContainer = () =>{
+    const {monthlyApplications:data} = useAppContext()
+
     return (
-        <div>
-            <h1>charts container</h1>
-        </div>
+        <Wrapper>
+            <BarChart data={data}/>
+            <AreaChart data={data}/>
+
+        </Wrapper>
     )
 }
 
